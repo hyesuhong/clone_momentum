@@ -12,7 +12,21 @@ body {
 	height: 100%;
 	width: 100%;
 	position: relative;
-	background: rgb(238, 184, 129);
+	background: rgb(24, 23, 26);
+	overflow: hidden;
+}
+
+ul li,
+ol li {
+	list-style: none;
+}
+
+svg {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
 }
 
 input {
@@ -20,7 +34,7 @@ input {
 }
 
 h2 {
-	font-size: 2rem;
+	font-size: 3rem;
 	margin: 0;
 	white-space: nowrap;
 }
@@ -34,6 +48,7 @@ h2 {
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
+	color: #eee;
 	text-align: center;
 }
 
@@ -44,17 +59,24 @@ h2 {
 	-webkit-appearance: none;
 	background: transparent;
 	border: none;
-	border-bottom: 1px solid #000;
+	border-bottom: 1px solid #aaa;
 	outline: none;
-	font-size: 1.6rem;
+	font-size: 2rem;
 	font-weight: 500;
-	margin-top: 2vw;
+	text-align: center;
+	margin-top: 3rem;
+	padding-bottom: 0.5rem;
+	color: inherit;
+	transition: all 0.3s;
+}
+
+#login_form input:focus {
+	border-bottom-color: #eee;
 }
 
 #after_login {
 	position: relative;
 	height: 100%;
-	background: gold;
 }
 
 .center_area {
@@ -62,6 +84,180 @@ h2 {
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	width: 50%;
+	color: #eee;
 	text-align: center;
+}
+
+#clock_area h1 {
+	font-size: 6rem;
+}
+#clock_text {
+	display: inline-block;
+	width: 20rem;
+}
+#clock_meridiem {
+	font-size: 1.6rem;
+}
+
+#greeting {
+	font-weight: 500;
+	margin-top: 0.8rem;
+}
+
+#todo_btn {
+	position: fixed;
+	bottom: 5px;
+	right: 5px;
+	padding: 0.5rem 0.8rem;
+	border: none;
+	outline: none;
+	background: transparent;
+	color: #eee;
+	cursor: pointer;
+}
+
+#todo_area {
+	position: fixed;
+	bottom: 40px;
+	right: 5px;
+	background: rgba(255, 255, 255, 0.2);
+	border-radius: 3px;
+	padding: 10px;
+	width: 260px;
+	visibility: hidden;
+	opacity: 0;
+	transform: translateY(20%);
+	transition: all 0.3s;
+}
+
+#todo_area.show {
+	visibility: visible;
+	opacity: 1;
+	transform: translateY(0);
+}
+
+#todo_list {
+	margin-bottom: 10px;
+	max-height: 200px;
+	overflow: hidden;
+}
+#todo_list > li {
+	position: relative;
+}
+#todo_list > li:not(:last-child) {
+	margin-bottom: 5px;
+}
+
+#todo_list button.delete_btn {
+	position: absolute;
+	top: 50%;
+	right: 0;
+	transform: translate(100%, -50%);
+	width: 1.6rem;
+	height: 1.6rem;
+	font-size: 0.8rem;
+	border: none;
+	outline: none;
+	background: transparent;
+	color: #eee;
+	cursor: pointer;
+	transition: all 0.3s;
+}
+#todo_list button.delete_btn::before {
+	content: '╳';
+}
+
+#todo_list > li:hover button.delete_btn {
+	transform: translate(0, -50%);
+}
+
+input[type='checkbox'] {
+	display: none;
+}
+
+input[type='checkbox'] + label {
+	position: relative;
+	padding-left: 1.2rem;
+	color: #eee;
+	display: inline-block;
+	width: 100%;
+}
+input[type='checkbox'] + label::before,
+input[type='checkbox'] + label::after {
+	content: '';
+	position: absolute;
+	transition: all 0.3s;
+}
+input[type='checkbox'] + label::before {
+	top: 50%;
+	left: 0;
+	transform: translateY(-50%);
+	width: 0.8rem;
+	height: 0.8rem;
+	border: 1px solid #eee;
+	border-radius: 2px;
+	opacity: 0.5;
+}
+input[type='checkbox'] + label::after {
+	top: 46%;
+	left: 5px;
+	transform: translateY(-50%) rotate(45deg);
+	width: 0.2rem;
+	height: 0.4rem;
+	border-bottom: 2px solid #eee;
+	border-right: 2px solid #eee;
+	opacity: 0;
+}
+input[type='checkbox']:checked + label::before,
+input[type='checkbox']:checked + label::after {
+	opacity: 1;
+}
+
+#todo_form input[type='text'] {
+	height: 28px;
+	background: transparent;
+	border: none;
+	outline: none;
+	color: #eee;
+}
+
+#weather_area {
+	position: fixed;
+	bottom: 5px;
+	left: 5px;
+	padding: 0.5rem 0.8rem;
+	color: #eee;
+	visibility: hidden;
+	opacity: 0;
+	transition: all 0.3s;
+}
+
+#weather_area > h4 {
+	font-size: 1rem;
+	font-weight: 500;
+	margin: 0 auto 0.3rem;
+}
+#weather_area > h4 > span {
+	display: inline-block;
+}
+#weather_area > h4 > span:first-child::after {
+	content: '\00B0';
+}
+#weather_area > h4 > span:last-child {
+	margin-left: 8px;
+	font-size: 0.8rem;
+	font-weight: 400;
+}
+#weather_area > h4 > span:last-child::before {
+	content: '/';
+}
+#weather_area > p {
+	display: flex;
+	align-items: center;
+	font-size: 0.8rem;
+}
+
+#weather_area > p > img {
+	width: 1rem;
+	transform: translateX(-20%);
 }

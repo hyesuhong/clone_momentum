@@ -12,9 +12,32 @@
 		<link rel="stylesheet" href="./src/css/index.css" />
 		<script src="./src/js/login.js" defer></script>
 		<script src="./src/js/clock.js" defer></script>
+		<script src="./src/js/background.js" defer></script>
 		<script src="./src/js/todo.js" defer></script>
+		<script src="./src/js/weather.js" defer></script>
 	</head>
 	<body>
+		<svg
+			id="background"
+			viewBox="0 0 200 200"
+			xmlns="http://www.w3.org/2000/svg"
+		>
+			<defs>
+				<linearGradient id="bg_gradient" x1="0" y1="0" x2="1" y2="1">
+					<stop offset="0%" stop-color="#00a2ff" />
+					<stop offset="100%" stop-color="#004d80" />
+				</linearGradient>
+				<filter id="blurFilter">
+					<feGaussianBlur in="sourceGraphic" stdDeviation="1" />
+				</filter>
+			</defs>
+			<path
+				fill="url(#bg_gradient)"
+				filter="url(#blurFilter)"
+				d="M38.3,-39C50.1,-35.7,60.4,-24.1,63,-10.9C65.5,2.2,60.2,17,52.1,29.2C44,41.4,33,51,21.7,51.7C10.3,52.5,-1.4,44.3,-19.3,42.3C-37.2,40.4,-61.2,44.8,-69.9,36.9C-78.7,28.9,-72.2,8.7,-62.3,-4.7C-52.5,-18.1,-39.3,-24.6,-28.3,-28.1C-17.4,-31.5,-8.7,-32,2.3,-34.7C13.2,-37.3,26.4,-42.3,38.3,-39Z"
+				transform="translate(100 100)"
+			/>
+		</svg>
 		<form id="login_form" class="hidden">
 			<h2>Hello, What is your name?</h2>
 			<input type="text" id="login_input" />
@@ -27,13 +50,25 @@
 						<span id="clock_text"></span><span id="clock_meridiem"></span>
 					</h1>
 				</div>
-				<h2 id="greeting"></h2>
+				<h2 id="greeting">
+					<span class="greeting_time"></span><span class="greeting_name"></span>
+				</h2>
 			</div>
+			<button id="todo_btn">ToDo</button>
 			<div id="todo_area">
-				<form id="todo_form">
-					<input type="text" id="todo_input" />
-				</form>
 				<ul id="todo_list"></ul>
+				<form id="todo_form">
+					<input type="text" id="todo_input" placeholder="New ToDo" />
+				</form>
+			</div>
+			<div id="weather_area">
+				<h4><span></span><span></span></h4>
+				<p>
+					<img
+						src="https://img.icons8.com/fluency-systems-regular/48/eeeeee/marker--v1.png"
+					/>
+					<span></span>
+				</p>
 			</div>
 		</div>
 	</body>

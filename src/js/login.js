@@ -24,9 +24,10 @@ function checkUserName(name) {
 	if (name === null || typeof name == undefined || name === '') {
 		loginForm.classList.remove(HIDDEN_CLASSNAME);
 		afterLogin.classList.add(HIDDEN_CLASSNAME);
+		loginInput.focus();
 	} else {
 		loginForm.classList.add(HIDDEN_CLASSNAME);
-		greeting.innerText = `Hello, ${name}`;
+		greeting.querySelector('.greeting_name').innerText = `, ${name}`;
 		afterLogin.classList.remove(HIDDEN_CLASSNAME);
 	}
 }
