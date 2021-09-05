@@ -12,6 +12,7 @@
 		<link rel="stylesheet" href="./src/css/index.css" />
 		<script src="./src/js/login.js" defer></script>
 		<script src="./src/js/clock.js" defer></script>
+		<script src="./src/js/todo.js" defer></script>
 	</head>
 	<body>
 		<form id="login_form" class="hidden">
@@ -27,6 +28,12 @@
 					</h1>
 				</div>
 				<h2 id="greeting"></h2>
+			</div>
+			<div id="todo_area">
+				<form id="todo_form">
+					<input type="text" id="todo_input" />
+				</form>
+				<ul id="todo_list"></ul>
 			</div>
 		</div>
 	</body>

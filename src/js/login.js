@@ -8,7 +8,7 @@ const greeting = document.querySelector('#greeting');
 const HIDDEN_CLASSNAME = 'hidden';
 const USERNAME_KEY = 'userName';
 
-function handleSubmit(event) {
+function loginSubmit(event) {
 	event.preventDefault();
 
 	const name = loginInput.value;
@@ -16,7 +16,7 @@ function handleSubmit(event) {
 	checkUserName(name);
 }
 
-loginForm.addEventListener('submit', handleSubmit);
+loginForm.addEventListener('submit', loginSubmit);
 
 const savedUserName = localStorage.getItem(USERNAME_KEY);
 
