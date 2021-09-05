@@ -1,7 +1,7 @@
 'use strict';
 
 const bgSvg = document.querySelector('#background');
-const bgGradient = bgSvg.querySelector('#bg_gradient');
+const bgGradient = bgSvg.querySelector('#bgGradient');
 const bgPath = bgSvg.querySelector('path');
 
 const paths = [
